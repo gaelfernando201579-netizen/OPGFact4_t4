@@ -39,6 +39,6 @@ public class ApplicationConfig {
 
     @Bean
     public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder(); // El estándar de la industria para cifrar passwords
+        return new BCryptPasswordEncoder();
     }
 }

@@ -22,8 +22,8 @@ public class JugadorService {
         return jugadorRepository.findById(id);
     }
 
-    public void saveOrUpdate(Jugador jugador) {
-        jugadorRepository.save(jugador);
+    public Jugador saveOrUpdate(Jugador jugador) {
+        return jugadorRepository.save(jugador);
     }
 
     public void delete(Long id) {

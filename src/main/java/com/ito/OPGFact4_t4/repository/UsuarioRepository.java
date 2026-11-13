@@ -8,8 +8,5 @@ import java.util.Optional;
 
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
-
-    // Spring Data JPA crea la consulta SQL automáticamente solo con nombrar bien el
-    // método
     Optional<Usuario> findByEmail(String email);
 }

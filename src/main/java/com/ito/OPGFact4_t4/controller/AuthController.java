@@ -19,13 +19,11 @@ public class AuthController {
 
     @PostMapping("/register")
     public ResponseEntity<AuthResponseDTO> register(@Valid @RequestBody RegistroDTO request) {
-        // Devuelve 201 CREATED
         return ResponseEntity.status(HttpStatus.CREATED).body(authService.registrar(request));
     }
 
     @PostMapping("/login")
     public ResponseEntity<AuthResponseDTO> login(@Valid @RequestBody LoginDTO request) {
-        // Devuelve 200 OK
         return ResponseEntity.ok(authService.login(request));
     }
 }

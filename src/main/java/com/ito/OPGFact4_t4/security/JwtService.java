@@ -17,8 +17,6 @@ import java.util.function.Function;
 @Service
 public class JwtService {
 
-    // Clave secreta (Debe ser de al menos 256 bits). En producción esto va en el
-    // application.properties
     private static final String SECRET_KEY = "Q2xhdmVTZWNyZXRhTXV5U2VndXJhUGFyYUFjdGl2aWRhZDRJVE9TcHJpbmdCb290";
 
     public String extractUsername(String token) {

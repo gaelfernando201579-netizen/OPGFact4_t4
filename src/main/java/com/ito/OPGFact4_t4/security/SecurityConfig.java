@@ -19,22 +19,18 @@ public class SecurityConfig {
     private JwtAuthenticationFilter jwtAuthFilter;
 
     @Autowired
-    private AuthenticationProvider authenticationProvider; // Lo configuraremos en el siguiente paso
+    private AuthenticationProvider authenticationProvider;
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
-                        // Rutas públicas (Registro y Login)
                         .requestMatchers("/api/auth/**").permitAll()
-                        // El resto del CRUD está protegido
                         .anyRequest().authenticated())
-                // Política sin estado (Stateless) porque usamos JWT, no cookies de sesión
                 .sessionManagement(session -> session
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authenticationProvider(authenticationProvider)
-                // Insertamos nuestro filtro JWT antes del filtro estándar de usuario/contraseña
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
     }

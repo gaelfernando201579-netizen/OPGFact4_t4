@@ -30,37 +30,33 @@ public class Usuario implements UserDetails {
     @Column(nullable = false)
     private String password;
 
-    // Métodos obligatorios de la interfaz UserDetails
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        // Le asignamos un rol genérico por defecto a todos
         return List.of(new SimpleGrantedAuthority("ROLE_USER"));
     }
 
     @Override
     public String getUsername() {
-        // Para Spring Security, nuestro "username" será el correo electrónico
         return email;
     }
 
     @Override
     public boolean isAccountNonExpired() {
-        return true; // La cuenta no expira
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return true; // La cuenta no se bloquea
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return true; // Las credenciales no expiran
+        return true;
     }
 
     @Override
     public boolean isEnabled() {
-        return true; // El usuario está activo
+        return true;
     }
 }

@@ -25,12 +25,10 @@ public class AuthService {
     private AuthenticationManager authenticationManager;
 
     public AuthResponseDTO registrar(RegistroDTO request) {
-        // Validamos si el correo ya existe
         if (usuarioRepository.findByEmail(request.getEmail()).isPresent()) {
             throw new RuntimeException("El correo ya está registrado en el sistema");
         }
 
-        // Construimos el usuario encriptando la contraseña
         Usuario usuario = Usuario.builder()
                 .email(request.getEmail())
                 .password(passwordEncoder.encode(request.getPassword()))
@@ -38,19 +36,14 @@ public class AuthService {
 
         usuarioRepository.save(usuario);
 
-        // Generamos y retornamos el token
         String jwtToken = jwtService.generateToken(usuario);
         return AuthResponseDTO.builder().token(jwtToken).build();
     }
 
     public AuthResponseDTO login(LoginDTO request) {
-        // AuthenticationManager verifica automáticamente si el password coincide con el
-        // cifrado
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword()));
 
-        // Si pasa la línea anterior, las credenciales son correctas. Buscamos al
-        // usuario y generamos token.
         Usuario usuario = usuarioRepository.findByEmail(request.getEmail()).orElseThrow();
         String jwtToken = jwtService.generateToken(usuario);
         return AuthResponseDTO.builder().token(jwtToken).build();

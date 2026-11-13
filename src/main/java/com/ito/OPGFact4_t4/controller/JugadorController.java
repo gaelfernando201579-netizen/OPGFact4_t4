@@ -38,6 +38,21 @@ public class JugadorController {
         return ResponseEntity.ok(listaDTOs);
     }
 
+    @GetMapping("/{jugadorId}")
+    public ResponseEntity<JugadorDTO> getById(@PathVariable("jugadorId") Long jugadorId) {
+        Jugador j = jugadorService.getJugador(jugadorId)
+                .orElseThrow(() -> new RuntimeException("Jugador no encontrado"));
+
+        JugadorDTO dto = new JugadorDTO();
+        dto.setId(j.getId());
+        dto.setNombre(j.getNombre());
+        dto.setApellidos(j.getApellidos());
+        dto.setEmail(j.getEmail());
+        dto.setPosicion(j.getPosicion());
+
+        return ResponseEntity.ok(dto);
+    }
+
     @PostMapping
     public ResponseEntity<JugadorDTO> create(@Valid @RequestBody JugadorDTO dto) {
         Jugador jugador = new Jugador();

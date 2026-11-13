@@ -1,0 +1,28 @@
+info:
+  name: POST Actualizar Jugador
+  type: http
+  seq: 3
+
+http:
+  method: PUT
+  url: http://localhost:8087/api/v1/jugadores/1
+  body:
+    type: json
+    data: |-
+      {
+        "id": 1,
+        "nombre": "Gael Fernando",
+        "apellidos": "Ortiz Pérez",
+        "email": "galo.botcitos@example.com",
+        "posicion": "Mediocampista"
+      }
+  auth:
+    type: bearer
+    token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnYWxvQGVqZW1wbG8uY29tIiwiaWF0IjoxNzk0NTQ1MDYyLCJleHAiOjE3OTQ2MzE0NjJ9.BOodnYJy2bMVzVVBr0JOJ8PIDuSxz-DsAkUlhefo3M0
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

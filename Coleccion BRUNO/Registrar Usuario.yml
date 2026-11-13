@@ -1,0 +1,23 @@
+info:
+  name: Registrar Usuario
+  type: http
+  seq: 6
+
+http:
+  method: POST
+  url: http://localhost:8087/api/auth/register
+  body:
+    type: json
+    data: |-
+      {
+        "email": "galo@ejemplo.com",
+        "password": "chinowong"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

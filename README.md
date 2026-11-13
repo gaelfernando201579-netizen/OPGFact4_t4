@@ -35,10 +35,10 @@ La API se encuentra desplegada y funcionando en el servidor VPS del equipo. Se e
 
 ## Colección de Bruno
 
-Las peticiones necesarias para probar la API están incluidas en la carpeta `/bruno` en la raíz de este repositorio.
+Las peticiones necesarias para probar la API están incluidas en la carpeta `/Coleccion BRUNO` en la raíz de este repositorio.
 
 1. Instala [Bruno](https://www.usebruno.com/).
-2. Abre la carpeta `/bruno` desde la aplicación.
+2. Abre la carpeta `/Coleccion BRUNO` desde la aplicación.
 3. Ejecuta primero `POST Registro` y `POST Login` para obtener tu token.
 4. Pega el token en la pestaña "Auth -> Bearer" de las peticiones CRUD.
 
@@ -49,24 +49,24 @@ Las peticiones necesarias para probar la API están incluidas en la carpeta `/br
 ### 1. Registro y Login (Autenticación)
 
 **Registro de nuevo usuario (Devuelve 201 Created)**
-![Captura de Registro](./capturas/registro.png)
+![Captura de Registro](./Capturas/registro_usuario.png)
 
 **Login exitoso (Genera y devuelve token JWT)**
-![Captura de Login](./capturas/login.png)
+![Captura de Login](./Capturas/logueo_usuario.png)
 
 ### 2. Operaciones CRUD (Rutas protegidas)
 
 **Petición SIN Token (Rechazada con código 403 Forbidden)**
-![Rechazo sin token](./capturas/sin_token.png)
+![Rechazo sin token](./Capturas/listado_sin_token.png)
 
 **Crear Jugador (POST con Token Bearer)**
-![POST Jugador](./capturas/crear_jugador.png)
+![POST Jugador](./Capturas/crear_jugador_cn_token.png)
 
 **Listar Jugadores (GET)**
-![GET Jugadores](./capturas/listar_jugadores.png)
+![GET Jugadores](./Capturas/listar_jugador_cn_token.png)
 
 **Actualizar Jugador (PUT)**
-![PUT Jugador](./capturas/actualizar_jugador.png)
+![PUT Jugador](./Capturas/actualizar_jugador.png)
 
 **Eliminar Jugador (DELETE)**
-![DELETE Jugador](./capturas/eliminar_jugador.png)
+![DELETE Jugador](./Capturas/eliminar%20jugador_id.png)

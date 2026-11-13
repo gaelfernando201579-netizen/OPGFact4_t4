@@ -1,8 +1,15 @@
 # Actividad 4: API REST con Spring Boot, Spring Security y JWT
 
-**Autor:** Gael Fernando Ortiz Pérez  
-**Materia/Institución:** Instituto Tecnológico de Oaxaca (TecNM / ITO) - Ingeniería en Sistemas Computacionales
+**Autor:** Gael Fernando Ortiz Pérez
+
+**Materia:** Programación Web
+
+**Institución:** Instituto Tecnológico de Oaxaca (TecNM / ITO)
+
+**Carrera:** Ingeniería en Sistemas Computacionales
+
 **Grupo:** 7SD
+
 **Puerto de Despliegue VPS:** 8089
 
 ## Descripción del Proyecto
@@ -49,24 +56,31 @@ Las peticiones necesarias para probar la API están incluidas en la carpeta `/Co
 ### 1. Registro y Login (Autenticación)
 
 **Registro de nuevo usuario (Devuelve 201 Created)**
+
 ![Captura de Registro](./Capturas/registro_usuario.png)
 
 **Login exitoso (Genera y devuelve token JWT)**
+
 ![Captura de Login](./Capturas/logueo_usuario.png)
 
 ### 2. Operaciones CRUD (Rutas protegidas)
 
 **Petición SIN Token (Rechazada con código 403 Forbidden)**
+
 ![Rechazo sin token](./Capturas/listado_sin_token.png)
 
 **Crear Jugador (POST con Token Bearer)**
+
 ![POST Jugador](./Capturas/crear_jugador_cn_token.png)
 
 **Listar Jugadores (GET)**
+
 ![GET Jugadores](./Capturas/listar_jugador_cn_token.png)
 
 **Actualizar Jugador (PUT)**
+
 ![PUT Jugador](./Capturas/actualizar_jugador.png)
 
 **Eliminar Jugador (DELETE)**
+
 ![DELETE Jugador](./Capturas/eliminar%20jugador_id.png)
